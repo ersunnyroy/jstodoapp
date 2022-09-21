@@ -51,6 +51,7 @@
     const todoItem          = document.getElementById('item');
     const todoItems_list    = document.getElementById('todoList') 
     const TodoItems         = new Array();
+    const removeItems       = document.querySelectorAll('.removeItem');
 
     addTodoItem.addEventListener('click', function(){
         
@@ -73,7 +74,7 @@
 
         let item_list = '';
         TodoItems.forEach(function(Item){
-                item_list += `<li> ${Item} </li>`;
+                item_list += `<li class="removeItem"> ${Item} </li>`;
         });
 
         todoItems_list.innerHTML = item_list;
