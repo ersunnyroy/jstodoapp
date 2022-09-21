@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo-list</title>
+<style>
+    h1{
+        text-align:center;
+    }
+
+    .todoList
+    {
+        margin:2em;
+        height:400px;
+        width:350px;
+        border:1px solid #7a7a7d;
+    }
+    .item
+    {
+        padding:10px;
+        margin:10px;
+        border:1px solid #eee;
+        width:220px;
+    }
+    #addTodo
+    {
+        padding:10px;
+        background: #dc6504;
+        color:#fff;
+        border:0px;
+    }
+    #addTodo:hover
+    {
+        padding:10px;
+        background: #fff;
+        color:#dc6504;
+        border:1px solid #dc6504;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>Todo List Using Javascript</h1>
+    <div class="todoList">
+        <input type="text" class="item" id="item" placeholder="Enter todo item name"/> <button id="addTodo">Add Item</button>
+        <ul id="todoList">
+
+        </ul>
+    </div>
+<script>
+    const addTodoItem       = document.querySelector('#addTodo');
+    const todoItem          = document.getElementById('item');
+    const todoItems_list    = document.getElementById('todoList') 
+    const TodoItems         = new Array();
+
+    addTodoItem.addEventListener('click', function(){
+        
+        let item        = todoItem.value.trim();
+
+        if (item == '')
+        {
+            alert('Please enter todo item name');
+            return false;   
+        }
+        else
+        {
+            TodoItems.push(item);
+        }
+
+        refreshList();
+    });
+
+    const refreshList = function(){
+
+        let item_list = '';
+        TodoItems.forEach(function(Item){
+                item_list += `<li> ${Item} </li>`;
+        });
+
+        todoItems_list.innerHTML = item_list;
+
+    }
+
+</script>
+</body>
+</html>
